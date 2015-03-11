@@ -1,0 +1,27 @@
+{
+    "name": "ibrahimgunduz34/payuclient",
+    "type": "library",
+    "description": "Payment client for Payu Turkey provider.",
+    "keywords": ["payment", "e-commerce", "payu"],
+    "require": {
+        "php": "> 5.3.0",
+        "guzzle/guzzle": "3.9.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ibrahimgunduz34",
+            "email": "ibrahimgunduz34@gmail.com",
+            "homepage": "http://ibrahimgunduz.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Payu": "src/",
+            "Payu\\Tests": "tests/"
+        }
+    }
+}
