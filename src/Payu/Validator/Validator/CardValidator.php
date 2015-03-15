@@ -15,7 +15,7 @@ class CardValidator extends ValidatorAbstract
         /**
          * @var $object \Payu\Component\Card
          */
-        $object = $this->getRequest()->getCard();
+        $object = $this->request->getCard();
         if(!$object || !$object instanceof Card) {
             throw new ValidationError('Card number does not be empty.');
         }
@@ -30,7 +30,7 @@ class CardValidator extends ValidatorAbstract
         /**
          * @var $card \Payu\Component\Card
          */
-        $card = $this->getRequest()->getCard();
+        $card = $this->request->getCard();
 
         $sum = 0;
         $weight = 2;
@@ -53,7 +53,7 @@ class CardValidator extends ValidatorAbstract
         /**
          * @var $card \Payu\Component\Card
          */
-        $card = $this->getRequest()->getCard();
+        $card = $this->request->getCard();
 
         if(!strtotime(date('Y-m-d')) <= strtotime(sprintf('%d-%02d-t', $card->getYear(), $card->getMonth()))) {
             throw new ValidationError('Card is expired');

@@ -17,15 +17,6 @@ abstract class ValidatorAbstract
     }
 
     /**
-     * @return RequestAbstract
-     */
-    public function getRequest()
-    {
-        #TODO: Request is already given from construction. What does getRequest do ?
-        return $this->request;
-    }
-
-    /**
      * @return void
      * @throws \Payu\Exception\ValidationError
      */

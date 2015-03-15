@@ -11,7 +11,7 @@ class BasketValidator extends ValidatorAbstract
      */
     protected function validateObject()
     {
-        $object = $this->getRequest()->getBasket();
+        $object = $this->request->getBasket();
         if(!$object || !$object instanceof Card) {
             throw new ValidationError('Basket is not set.');
         }
@@ -22,7 +22,7 @@ class BasketValidator extends ValidatorAbstract
         /**
          * @var $collection \Payu\Component\Basket
          */
-        $collection = $this->getRequest()->getBasket();
+        $collection = $this->request->getBasket();
         if(!$collection->count()) {
             throw new ValidationError('Basket does not be empty.');
         }
