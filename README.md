@@ -1,4 +1,4 @@
-# Payu Client for PHP
+# PHP İçin Payu İstemcisi
 
 # Nedir ?
 PHP geliştiricilerinin Payu üzerinden ödeme ve puan sorgulama işlemlerini kolayca gerçekleştirebilmesini sağlayan bir PHP kütüphanesidir.
