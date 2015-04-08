@@ -18,6 +18,8 @@ abstract class ValidatorAbstract
         $this->request = $request;
     }
 
+
+
     /**
      * @return void
      * @throws \Payu\Exception\ValidationError

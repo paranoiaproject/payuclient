@@ -1,6 +1,8 @@
 <?php
 namespace Payu\Validator\Validator;
 
+use Payu\Request\RequestAbstract;
+
 abstract class ValidatorAbstract
 {
     /**

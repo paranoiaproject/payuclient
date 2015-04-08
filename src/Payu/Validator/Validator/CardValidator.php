@@ -54,10 +54,16 @@ class CardValidator extends ValidatorAbstract
          * @var $card \Payu\Component\Card
          */
         $card = $this->request->getCard();
+        $cardExpireTime = strtotime(
+            date('Y-m-t', strtotime(sprintf('%d-%02d-1', $card->getYear(), $card->getMonth()))
+        ));
 
-        if(!strtotime(date('Y-m-d')) <= strtotime(sprintf('%d-%02d-t', $card->getYear(), $card->getMonth()))) {
+        if(strtotime(date('Y-m-d')) > $cardExpireTime) {
             throw new ValidationError('Card is expired');
         }
+
+
+
     }
 
     /**
