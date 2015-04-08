@@ -16,7 +16,7 @@ class BillingValidator extends ValidatorAbstract
         /**
          * @var $object \Payu\Component\Billing
          */
-        $object = $this->getRequest()->getBilling();
+        $object = $this->request->getBilling();
         if(!$object || !$object instanceof Billing) {
             throw new ValidationError('Billing information does not be empty.');
         }

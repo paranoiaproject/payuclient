@@ -1,6 +1,7 @@
 <?php
 namespace Payu\Validator\Validator;
 
+use Payu\Component\Basket;
 use Payu\Exception\ValidationError;
 
 class BasketValidator extends ValidatorAbstract
@@ -11,8 +12,8 @@ class BasketValidator extends ValidatorAbstract
      */
     protected function validateObject()
     {
-        $object = $this->getRequest()->getBasket();
-        if(!$object || !$object instanceof Card) {
+        $object = $this->request->getBasket();
+        if(!$object || !$object instanceof Basket) {
             throw new ValidationError('Basket is not set.');
         }
     }
@@ -22,7 +23,7 @@ class BasketValidator extends ValidatorAbstract
         /**
          * @var $collection \Payu\Component\Basket
          */
-        $collection = $this->getRequest()->getBasket();
+        $collection = $this->request->getBasket();
         if(!$collection->count()) {
             throw new ValidationError('Basket does not be empty.');
         }

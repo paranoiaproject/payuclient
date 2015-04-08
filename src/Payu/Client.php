@@ -85,7 +85,7 @@ class Client
      */
     public function makeLoyaltyInquiry(LoyaltyInquiryRequest $request)
     {
-        $rawResponse = $this->sendRequest($request, $this->configuration->getPaymentEndpointUrl());
+        $rawResponse = $this->sendRequest($request, $this->configuration->getLoyaltyInquiryEndPointUrl());
         $parser = new ResponseParser(new LoyaltyInquiryResponseParser(), $rawResponse);
         return $parser->parse();
     }

@@ -9,7 +9,7 @@ class PaymentRequestSerializer extends SerializerAbstract
     private function serializeOrder()
     {
         /** @var $order \Payu\Component\Order */
-        $order = $this->getRequest()->getOrder();
+        $order = $this->request->getOrder();
 
         $data = array(
             'ORDER_REF' => $order->getCode(),
@@ -23,7 +23,7 @@ class PaymentRequestSerializer extends SerializerAbstract
 
         if((float) $order->getLoyaltyAmount() != 0) {
             $data['USE_LOYALTY_POINTS'] = 'YES';
-            if((float) $order->getLoyaltyAmount() != (float) $this->getRequest()->getBasket()->getTotalPrice()) {
+            if((float) $order->getLoyaltyAmount() != (float) $this->request->getBasket()->getTotalPrice()) {
                 $data['LOYALTY_POINTS_AMOUNT'] = (float) $order->getLoyaltyAmount();
             }
         }
@@ -37,7 +37,7 @@ class PaymentRequestSerializer extends SerializerAbstract
     private function serializeBilling()
     {
         /** @var $billing  \Payu\Component\Billing */
-        $billing = $this->getRequest()->getBilling();
+        $billing = $this->request->getBilling();
 
         return array(
             'BILL_LNAME' => $billing->getLastName(),
@@ -59,7 +59,7 @@ class PaymentRequestSerializer extends SerializerAbstract
     private function serializeDelivery()
     {
         /** @var $delivery \Payu\Component\Delivery */
-        $delivery = $this->getRequest()->getDelivery();
+        $delivery = $this->request->getDelivery();
         if(!$delivery) {
             return array();
         }
@@ -86,7 +86,7 @@ class PaymentRequestSerializer extends SerializerAbstract
         $i = 0;
         $data = array();
         /** @var $product \Payu\Component\Product */
-        foreach($this->getRequest()->getBasket() as $product) {
+        foreach($this->request->getBasket() as $product) {
             $data['ORDER_PNAME[' . $i . ']'] = $product->getName();
             $data['ORDER_PCODE[' . $i . ']'] = $product->getCode();
             $data['ORDER_PRICE[' . $i . ']'] = $product->getPrice();

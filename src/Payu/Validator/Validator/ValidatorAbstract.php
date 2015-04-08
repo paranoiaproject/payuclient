@@ -1,6 +1,8 @@
 <?php
 namespace Payu\Validator\Validator;
 
+use Payu\Request\RequestAbstract;
+
 abstract class ValidatorAbstract
 {
     /**
@@ -14,15 +16,6 @@ abstract class ValidatorAbstract
     public function __construct(RequestAbstract $request)
     {
         $this->request = $request;
-    }
-
-    /**
-     * @return RequestAbstract
-     */
-    public function getRequest()
-    {
-        #TODO: Request is already given from construction. What does getRequest do ?
-        return $this->request;
     }
 
     /**

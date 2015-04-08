@@ -18,14 +18,7 @@ abstract class ValidatorAbstract
         $this->request = $request;
     }
 
-    /**
-     * @return RequestAbstract
-     */
-    public function getRequest()
-    {
-        #TODO: Request is already given from construction. What does getRequest do ?
-        return $this->request;
-    }
+
 
     /**
      * @return void

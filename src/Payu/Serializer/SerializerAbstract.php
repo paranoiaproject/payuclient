@@ -27,31 +27,12 @@ abstract class SerializerAbstract
     }
 
     /**
-     * @return RequestAbstract
-     */
-    public function getRequest()
-    {
-        #TODO: Request is already given from construction. What does getRequest do ?
-        return $this->request;
-    }
-
-    /**
-     * @return Configuration
-     */
-    protected function getConfiguration()
-    {
-        #TODO: No need any protected wrapper function for protected attributes.
-        return $this->configuration;
-    }
-
-
-    /**
      * @return array
      */
     protected function serializeCard()
     {
         /** @var $card \Payu\Component\Card */
-        $card = $this->getRequest()->getCard();
+        $card = $this->request->getCard();
 
         return array(
             'CC_NUMBER' => $card->getNumber(),
@@ -70,7 +51,7 @@ abstract class SerializerAbstract
             $buffer .= strlen($value) . $value;
         }
 
-        return hash_hmac('md5', $buffer, $this->getConfiguration()->getSecretKey());
+        return hash_hmac('md5', $buffer, $this->configuration->getSecretKey());
     }
 
     /**

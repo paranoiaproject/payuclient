@@ -25,7 +25,7 @@ class OrderValidator extends ValidatorAbstract
         /**
          * @var $object \Payu\Component\Order
          */
-        $object = $this->getRequest()->getOrder();
+        $object = $this->request->getOrder();
         if(!$object || !$object instanceof Order) {
             throw new ValidationError('Order does not be empty.');
         }
