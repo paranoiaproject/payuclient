@@ -61,7 +61,7 @@ $billing->setFirstName('John')
 $product = new Product();
 $product->setCode('PR1')
     ->setName('The Product')
-    ->setQuantiy(1)
+    ->setQuantity(1)
     ->setPrice(10);
 
 /** @var $request \Payu\Request\PaymentRequest */
