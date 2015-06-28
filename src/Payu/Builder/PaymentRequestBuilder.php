@@ -44,7 +44,7 @@ class PaymentRequestBuilder extends BuilderAbstract
      * @param null $timeout
      * @return $this
      */
-    public function buildOrders(
+    public function buildOrder(
         $code,
         $clientIp,
         $installment = 1,
