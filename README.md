@@ -15,4 +15,4 @@ $ composer require ibrahimgunduz34/payuclient:dev-master
 
 Entegrasyon detayları ile ilgili dökümanları [buraya tıklayarak](/docs/index.md) inceleyebilirsiniz.
 
-Katkıda bulunan geliştiriciler için [buraya tıklayınız(/docs/contributors.md)]
+Katkıda bulunan geliştiriciler için [buraya tıklayınız](/docs/contributors.md)
