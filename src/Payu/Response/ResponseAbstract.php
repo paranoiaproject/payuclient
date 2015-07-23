@@ -5,6 +5,7 @@ abstract class ResponseAbstract
 {
     const STATUS_APPROVED = 200;
     const STATUS_DECLINED = 500;
+
     /**
      * @var integer
      */

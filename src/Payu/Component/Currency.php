@@ -24,7 +24,7 @@ class Currency implements ComponentInterface
         $this->code = $code;
     }
 
-    public function __construct($code) {
+    public function __construct($code = null) {
         $this->code = $code;
     }
 }
