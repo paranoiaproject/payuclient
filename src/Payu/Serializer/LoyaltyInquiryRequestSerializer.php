@@ -11,7 +11,7 @@ class LoyaltyInquiryRequestSerializer extends SerializerAbstract
         $concatenatedData = array_merge(
             array(
                 'MERCHANT' => $this->configuration->getMerchantId(),
-                'CURRENCY' => $this->request->getCurrency()->getCurrency(),
+                'CURRENCY' => $this->request->getCurrency()->getCode(),
                 'DATE' => $this->request->getDate(),
             ),
             $this->serializeCard()

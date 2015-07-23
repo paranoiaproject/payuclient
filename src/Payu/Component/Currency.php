@@ -6,25 +6,25 @@ class Currency implements ComponentInterface
     /**
      * @var string
      */
-    private $currency;
+    private $code;
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getCurrency()
+    public function getCode()
     {
-        return $this->currency;
+        return $this->code;
     }
 
     /**
-     * @param mixed $currency
+     * @param string $code
      */
-    public function setCurrency($currency)
+    public function setCode($code)
     {
-        $this->currency = $currency;
+        $this->code = $code;
     }
 
-    public function __construct($currency) {
-        $this->currency = $currency;
+    public function __construct($code) {
+        $this->code = $code;
     }
 }
