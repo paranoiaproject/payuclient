@@ -9,6 +9,7 @@ class PaymentRequestValidator extends ValidatorAbstract
         '\\Payu\\Validator\\Validator\\OrderValidator',
         '\\Payu\\Validator\\Validator\\BasketValidator',
     );
+
     /**
      * @return void
      * @throws \Payu\Exception\ValidationError

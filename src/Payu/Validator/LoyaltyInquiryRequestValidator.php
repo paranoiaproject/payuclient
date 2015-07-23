@@ -3,6 +3,9 @@ namespace Payu\Validator;
 
 class LoyaltyInquiryRequestValidator extends ValidatorAbstract
 {
+    private $validators = array(
+        '\\Payu\\Validator\\Validator\\CardValidator'
+    );
 
     /**
      * @return void
@@ -10,6 +13,11 @@ class LoyaltyInquiryRequestValidator extends ValidatorAbstract
      */
     public function validate()
     {
-        // TODO: Implement validate() method.
+        foreach($this->validators as $class) {
+            /** @var $instance \Payu\Validator\Validator\ValidatorAbstract */
+            $instance = new $class($this->request);
+            $instance->validate();
+            unset($instance);
+        }
     }
 }
