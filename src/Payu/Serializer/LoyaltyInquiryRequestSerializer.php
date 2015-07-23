@@ -3,19 +3,21 @@ namespace Payu\Serializer;
 
 class LoyaltyInquiryRequestSerializer extends SerializerAbstract
 {
-
     /**
-     * @return serialize
+     * @return array
      */
     public function serialize()
     {
         $concatenatedData = array_merge(
-            $this->serializeCard(),
+            array(
+                'MERCHANT' => $this->configuration->getMerchantId(),
+                'CURRENCY' => $this->request->getCurrency()->getCurrency(),
+                'DATE' => $this->request->getDate(),
+            ),
+            $this->serializeCard()
         );
-
         $filteredData = array_filter($concatenatedData);
-        $filteredData['MERCHANT'] = $this->configuration->getMerchantId();
-        $filteredData['ORDER_HASH'] = $this->calculateHash($filteredData);
+        $filteredData['HASH'] = $this->calculateHash($filteredData);
 
         return $filteredData;
     }
