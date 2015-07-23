@@ -18,7 +18,7 @@ $client = new Client($configuration);
 ```
 
 ## Ödeme İsteğinin Oluşturulması
-Ödeme isteği, *Client* nesnesi üstündeki kurucu metodlar vasıtasyıla veya isteği oluşturan bileşenlerin ayrı ayrı oluşturulması ile kolayce oluşturulabilir.
+Ödeme isteği, *Client* nesnesi üstündeki kurucu metodlar vasıtasyıla veya isteği oluşturan bileşenlerin ayrı ayrı oluşturulması ile kolayca oluşturulabilir.
 
 Aşağıdaki kod örneği ödeme isteğini *Client* nesnesi üzerindeki kurucu metodlarla gerçekleştirmektedir.
 
