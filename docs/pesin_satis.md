@@ -105,6 +105,7 @@ Son olarak herşeyi bir araya getirelim.
 ```php
 use Payu\Client;
 use Payu\Configuration;
+use Payu\Response\ResponseAbstract;
 
 $configuration = new Configuration();
 
