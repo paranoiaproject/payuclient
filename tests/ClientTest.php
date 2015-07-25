@@ -51,7 +51,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($result instanceof PaymentResponse);
     }
 
-    public function testmakeLoyaltyInquiry()
+    public function testMakeLoyaltyInquiry()
     {
         $request = $this->client->createLoyaltyInquiryRequestBuilder()
             ->buildCard('4282209027132016', '123', '5', '2019')
