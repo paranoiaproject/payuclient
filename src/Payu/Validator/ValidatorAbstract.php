@@ -18,11 +18,22 @@ abstract class ValidatorAbstract
         $this->request = $request;
     }
 
-
-
     /**
      * @return void
      * @throws \Payu\Exception\ValidationError
      */
-    abstract public function validate();
-} 
+    public function validate()
+    {
+        foreach($this->validators() as $class) {
+            /** @var $instance \Payu\Validator\Validator\ValidatorAbstract */
+            $instance = new $class($this->request);
+            $instance->validate();
+            unset($instance);
+        }
+    }
+
+    /**
+     * @return array
+     */
+    abstract public function validators();
+}
