@@ -123,7 +123,7 @@ $request = $client->createPaymentRequestBuilder()
     ->buildAndAddProduct('The Product', 'PR1', 1, 10, 5)
     ->build();
 
-$response = $client->makePayment($request)
+$response = $client->makePayment($request);
 
 if($response->getStatus() == ResponseAbstract::STATUS_APPROVED) {
     /*
