@@ -113,6 +113,7 @@ class PaymentRequestSerializer extends SerializerAbstract
 
         $filteredData = array_filter($concatenatedData);
         $filteredData['MERCHANT'] = $this->configuration->getMerchantId();
+        $filteredData['BACK_REF'] = $this->configuration->getReturnUrl();
         $filteredData['ORDER_HASH'] = $this->calculateHash($filteredData);
 
         return $filteredData;

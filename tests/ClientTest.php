@@ -25,6 +25,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->setSecretKey('SECRET_KEY')
             ->setPaymentEndpointUrl('https://secure.payu.com.tr/order/alu/v3')
             ->setLoyaltyInquiryEndPointUrl('https://secure.payu.com.tr/api/loyalty-points/check');
+            ->setReturnUrl('http://payu/cs/payu_3dreturn.php');
         $this->configuration = $configuration;
         $this->client = new Client($configuration);
     }

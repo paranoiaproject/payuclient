@@ -11,7 +11,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
 
     public function setUp() {
         $this->configuration = new Configuration('TestMerchantId', 'TestSecretKey', 'TestPaymentEndpointUrl',
-            'TestLoyaltyInquiryEndPointUrl');
+            'TestLoyaltyInquiryEndPointUrl', 'Test3DReturnUrl');
     }
 
     public function testConstructor() {
@@ -19,6 +19,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('TestSecretKey', $this->configuration->getSecretKey());
         $this->assertEquals('TestPaymentEndpointUrl', $this->configuration->getPaymentEndpointUrl());
         $this->assertEquals('TestLoyaltyInquiryEndPointUrl', $this->configuration->getLoyaltyInquiryEndPointUrl());
+        $this->assertEquals('Test3DReturnUrl', $this->configuration->getReturnUrl());
     }
 
     public function testSetMerchantId() {
@@ -40,4 +41,10 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->configuration->setLoyaltyInquiryEndPointUrl('TestLoyaltyInquiryEndPointUrlSetter');
         $this->assertEquals('TestLoyaltyInquiryEndPointUrlSetter', $this->configuration->getLoyaltyInquiryEndPointUrl());
     }
+
+    public function testSet3DReturnUrl() {
+        $this->configuration->setReturnUrl('Test3DReturnUrlSetter');
+        $this->assertEquals('Test3DReturnUrlSetter', $this->configuration->getReturnUrl());
+    }
+
 }

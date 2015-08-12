@@ -13,6 +13,7 @@ $configuration = new Configuration();
 $configuration->setMerchantId('MY_MERCHANT_01')
     ->setSecretKey('SECRET_KEY')
     ->setPaymentEndpointUrl('https://secure.payu.com.tr/order/alu/v3');
+    ->setReturnUrl('http://payu/cs/payu_3dreturn.php');
 
 $client = new Client($configuration);
 ```
@@ -92,6 +93,15 @@ if($response->getStatus() == ResponseAbstract::STATUS_APPROVED) {
     */
 } else {
     /*
+    // Eğer Kredi Kartı 3D Secure korumalıysa
+    if (($response->getCode() == ResponseAbstract::SECURE3D)) {
+        
+        header("Location:" . $response->getUrl_3ds());
+        exit();
+    }
+    */
+
+    /*
     // Odeme islemi hatali oldu
 
     echo $response->getCode();
@@ -112,6 +122,7 @@ $configuration = new Configuration();
 $configuration->setMerchantId('MY_MERCHANT_01')
     ->setSecretKey('SECRET_KEY')
     ->setPaymentEndpointUrl('https://secure.payu.com.tr/order/alu/v3');
+    ->setReturnUrl('http://payu/cs/payu_3dreturn.php');
 
 $client = new Client($configuration);
 
@@ -131,6 +142,14 @@ if($response->getStatus() == ResponseAbstract::STATUS_APPROVED) {
     echo $response->getTransactionId()
     */
 } else {
+    /*
+    // Eğer Kredi Kartı 3D Secure korumalıysa
+    if (($response->getCode() == ResponseAbstract::SECURE3D)) {
+        
+        header("Location:" . $response->getUrl_3ds());
+        exit();
+    }
+    */
     /*
     // Odeme islemi hatali oldu
 

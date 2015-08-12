@@ -18,18 +18,24 @@ class Configuration
      */
     private $paymentEndpointUrl;
 
+     /**
+     * @var string
+     */
+    private $returnUrl;
+
     /**
      * @var string
      */
     private $loyaltyInquiryEndPointUrl;
 
     public function __construct($merchantId = null, $secretKey = null, $paymentEndpointUrl = null,
-                                $loyaltyInquiryEndPointUrl = null)
+                                $loyaltyInquiryEndPointUrl = null, $returnUrl = null)
     {
         $this->merchantId = $merchantId;
         $this->secretKey = $secretKey;
         $this->paymentEndpointUrl = $paymentEndpointUrl;
         $this->loyaltyInquiryEndPointUrl = $loyaltyInquiryEndPointUrl;
+        $this->returnUrl = $returnUrl;
     }
 
     /**
@@ -102,5 +108,23 @@ class Configuration
     public function getSecretKey()
     {
         return $this->secretKey;
+    }
+
+    /**
+     * @param string $returnUrl
+     * @return $this
+     */
+    public function setReturnUrl($returnUrl)
+    {
+        $this->returnUrl = $returnUrl;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReturnUrl()
+    {
+        return $this->returnUrl;
     }
 } 
