@@ -1,7 +1,6 @@
 <?php
 namespace Payu\Component;
 
-
 class Basket implements ComponentInterface, \Iterator, \Countable
 {
     /**
@@ -14,11 +13,21 @@ class Basket implements ComponentInterface, \Iterator, \Countable
         $this->collection = array();
     }
 
+    /**
+     * Add new product to basket
+     *
+     * @param Product $product
+     */
     public function add(Product $product)
     {
         $this->collection[$product->getCode()] = $product;
     }
 
+    /**
+     * Remove product from basket with code
+     *
+     * @param string $code
+     */
     public function remove($code)
     {
         unset($this->collection[$code]);
@@ -94,13 +103,19 @@ class Basket implements ComponentInterface, \Iterator, \Countable
         return count($this->collection);
     }
 
+    /**
+     * Return Total Price of Basket
+     *
+     * @return double
+     */
     public function getTotalPrice()
     {
-        $sum = 0;
+        $sum = 0.0;
         /** @var $product \Payu\Component\Product */
-        foreach($this->collection as $product) {
+        foreach ($this->collection as $product) {
             $sum += ((int) $product->getQuantity() * (float) $product->getPrice());
         }
+
         return $sum;
     }
 }
