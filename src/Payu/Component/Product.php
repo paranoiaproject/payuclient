@@ -14,7 +14,7 @@ class Product implements ComponentInterface
     private $code;
 
     /**
-     * @var string
+     * @var integer
      */
     private $quantity = 1;
 
@@ -40,6 +40,7 @@ class Product implements ComponentInterface
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -58,6 +59,7 @@ class Product implements ComponentInterface
     public function setInfo($info)
     {
         $this->info = $info;
+
         return $this;
     }
 
@@ -76,6 +78,7 @@ class Product implements ComponentInterface
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -94,6 +97,7 @@ class Product implements ComponentInterface
     public function setPrice($price)
     {
         $this->price = $price;
+
         return $this;
     }
 
@@ -106,17 +110,18 @@ class Product implements ComponentInterface
     }
 
     /**
-     * @param string $quantity
+     * @param integer $quantity
      * @return $this
      */
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+
         return $this;
     }
 
     /**
-     * @return string
+     * @return integer
      */
     public function getQuantity()
     {
@@ -130,6 +135,7 @@ class Product implements ComponentInterface
     public function setVersion($version)
     {
         $this->version = $version;
+
         return $this;
     }
 
@@ -156,4 +162,4 @@ class Product implements ComponentInterface
         $this->setPrice($price);
         $this->setVersion($version);
     }
-} 
+}
