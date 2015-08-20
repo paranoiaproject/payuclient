@@ -18,6 +18,7 @@ class PaymentRequestSerializer extends SerializerAbstract
             'PRICES_CURRENCY' => $order->getCurrency(),
             'SELECTED_INSTALLMENTS_NUMBER' => $order->getInstallment(),
             'ORDER_TIMEOUT' => $order->getTimeout(),
+            'BACK_REF' => $this->configuration->getPaymentReturnPointUrl(),
             'CLIENT_IP' => $order->getClientIp()
         );
 
@@ -110,6 +111,8 @@ class PaymentRequestSerializer extends SerializerAbstract
             $this->serializeDelivery(),
             $this->serializeBasket()
         );
+
+
 
         $filteredData = array_filter($concatenatedData);
         $filteredData['MERCHANT'] = $this->configuration->getMerchantId();

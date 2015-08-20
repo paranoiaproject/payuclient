@@ -3,8 +3,9 @@ namespace Payu\Response;
 
 abstract class ResponseAbstract
 {
-    const STATUS_APPROVED = 200;
-    const STATUS_DECLINED = 500;
+    const STATUS_APPROVED     = 200;
+    const STATUS_UNAUTHORIZED = 401;
+    const STATUS_DECLINED     = 500;
 
     /**
      * @var integer

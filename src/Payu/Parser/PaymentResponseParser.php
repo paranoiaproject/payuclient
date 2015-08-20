@@ -1,6 +1,7 @@
 <?php
 namespace Payu\Parser;
 
+use Guzzle\Http\EntityBody;
 use Payu\Exception\BadResponseError;
 use Payu\Response\PaymentResponse;
 use Payu\Response\ResponseAbstract;
@@ -10,23 +11,46 @@ use \Exception;
 class PaymentResponseParser implements ParserInterface
 {
     /**
-     * @param string $rawData
+     * @param EntityBody|string|array $rawData
      * @return PaymentResponse|ResponseAbstract
      * @throws \Payu\Exception\BadResponseError
      */
     public function parse($rawData)
     {
         try {
-            $xml = new SimpleXMLElement($rawData);
+            $xml = ($rawData instanceof EntityBody || is_string($rawData)) ?
+                                    new SimpleXMLElement($rawData) : (object) $rawData;
         } catch(Exception $e) {
             throw new BadResponseError('Unexpected response received from provider. Response: ' . $rawData);
         }
+
         $status = (string) $xml->STATUS;
         $code = (string) $xml->RETURN_CODE;
         $message = (string) $xml->RETURN_MESSAGE;
-        $statusCode = $status == 'SUCCESS' && $code == 'AUTHORIZED' ?
-                     ResponseAbstract::STATUS_APPROVED : ResponseAbstract::STATUS_DECLINED;
-        $transactionId = $statusCode == ResponseAbstract::STATUS_APPROVED ? (string) $xml->REFNO : null;
-        return new PaymentResponse($statusCode, $code, $message, $transactionId);
+        $statusCode = $this->getStatusCode($status, $code);
+        $transactionId = $this->getTransactionId($xml->REFNO, $statusCode);
+        $hash = isset($xml->HASH) ? (string) $xml->HASH : null;
+        $url3DS = isset($xml->URL_3DS) ? (string) $xml->URL_3DS : null;
+
+        return new PaymentResponse($statusCode, $code, $message, $transactionId, $hash, $url3DS);
+    }
+
+    private function getStatusCode($status, $code) {
+        $statusCode = ResponseAbstract::STATUS_DECLINED;
+
+        if ($status == 'SUCCESS') {
+            if ($code == 'AUTHORIZED') {
+                $statusCode = ResponseAbstract::STATUS_APPROVED;
+            } else if ($code == '3DS_ENROLLED') {
+                $statusCode = ResponseAbstract::STATUS_UNAUTHORIZED;
+            }
+        }
+
+        return $statusCode;
+    }
+
+    private function getTransactionId($refNo, $statusCode) {
+        return in_array($statusCode, array(ResponseAbstract::STATUS_APPROVED, ResponseAbstract::STATUS_UNAUTHORIZED)) ?
+                (string) $refNo : null;
     }
 }
