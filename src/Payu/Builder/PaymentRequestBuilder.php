@@ -52,7 +52,8 @@ class PaymentRequestBuilder extends BuilderAbstract
         $loyaltyAmount = null,
         $paymentMethod = 'CCVISAMC',
         $date=null,
-        $timeout = null
+        $timeout = null,
+        $recurringPayment = false
     ) {
         $this->order = new Order(
             $code,
@@ -62,7 +63,8 @@ class PaymentRequestBuilder extends BuilderAbstract
             $loyaltyAmount,
             $paymentMethod,
             $date,
-            $timeout
+            $timeout,
+            $recurringPayment
         );
         return $this;
     }

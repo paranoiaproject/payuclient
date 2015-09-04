@@ -45,6 +45,33 @@ class Order implements ComponentInterface
     private $loyaltyAmount;
 
     /**
+     * @var bool
+     */
+    private $recurringPayment = false;
+
+    public function __construct(
+        $code = null,
+        $clientIp = null,
+        $installment = 1,
+        $currency='TRY',
+        $loyaltyAmount = null,
+        $paymentMethod = 'CCVISAMC',
+        $date=null,
+        $timeout = null,
+        $recurringPayment = false
+    ) {
+        $this->setCode($code);
+        $this->setClientIp($clientIp);
+        $this->setInstallment($installment);
+        $this->setCurrency($currency);
+        $this->setLoyaltyAmount($loyaltyAmount);
+        $this->setPaymentMethod($paymentMethod);
+        $this->setDate($date);
+        $this->setTimeout($timeout);
+        $this->setRecurringPayment($recurringPayment);
+    }
+
+    /**
      * @param string $clientIp
      * @return $this
      */
@@ -188,24 +215,28 @@ class Order implements ComponentInterface
         return $this->timeout;
     }
 
-    public function __construct(
-        $code = null,
-        $clientIp = null,
-        $installment = 1,
-        $currency='TRY',
-        $loyaltyAmount = null,
-        $paymentMethod = 'CCVISAMC',
-        $date=null,
-        $timeout = null
-    ) {
-        $this->setCode($code);
-        $this->setClientIp($clientIp);
-        $this->setInstallment($installment);
-        $this->setCurrency($currency);
-        $this->setLoyaltyAmount($loyaltyAmount);
-        $this->setPaymentMethod($paymentMethod);
-        $this->setDate($date);
-        $this->setTimeout($timeout);
 
+    /**
+     * Gets the value of recurringPayment.
+     *
+     * @return bool
+     */
+    public function isRecurringPayment()
+    {
+        return $this->recurringPayment;
     }
-} 
+
+    /**
+     * Sets the value of recurringPayment.
+     *
+     * @param bool $recurringPayment the recurring payment
+     *
+     * @return self
+     */
+    public function setRecurringPayment($recurringPayment)
+    {
+        $this->recurringPayment = (bool)$recurringPayment;
+
+        return $this;
+    }
+}
