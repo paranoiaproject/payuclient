@@ -28,8 +28,8 @@ class PaymentRequestSerializer extends SerializerAbstract
             }
         }
 
-        if( $order->isReccuringOrder() === true ){
-            $data['LU_ENABLE_TOKEN'] = 1;
+        if( $order->isRecurringPayment() === true ){
+            $data['LU_ENABLE_TOKEN'] = true;
         }
 
         return $data;

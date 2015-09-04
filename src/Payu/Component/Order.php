@@ -57,7 +57,8 @@ class Order implements ComponentInterface
         $loyaltyAmount = null,
         $paymentMethod = 'CCVISAMC',
         $date=null,
-        $timeout = null
+        $timeout = null,
+        $recurringPayment = false
     ) {
         $this->setCode($code);
         $this->setClientIp($clientIp);
@@ -67,7 +68,7 @@ class Order implements ComponentInterface
         $this->setPaymentMethod($paymentMethod);
         $this->setDate($date);
         $this->setTimeout($timeout);
-
+        $this->setRecurringPayment($recurringPayment);
     }
 
     /**
