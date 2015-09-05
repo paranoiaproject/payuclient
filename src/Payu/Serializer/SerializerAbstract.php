@@ -43,9 +43,11 @@ abstract class SerializerAbstract
         );
     }
 
-    protected function calculateHash($rawData)
+    protected function calculateHash($rawData, $sortByKey=true)
     {
-        ksort($rawData);
+        if($sortByKey) {
+            ksort($rawData);
+        }
         $buffer = '';
         foreach($rawData as $key => $value) {
             $buffer .= strlen($value) . $value;

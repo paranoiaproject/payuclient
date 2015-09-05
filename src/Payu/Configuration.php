@@ -23,13 +23,26 @@ class Configuration
      */
     private $loyaltyInquiryEndPointUrl;
 
+    /**
+     * @var string
+     */
+    private $refundEndpointUrl;
+
+    /**
+     * @param string $merchantId
+     * @param string $secretKey
+     * @param string $paymentEndpointUrl
+     * @param string $loyaltyInquiryEndPointUrl
+     * @param string $refundEndpointUrl
+     */
     public function __construct($merchantId = null, $secretKey = null, $paymentEndpointUrl = null,
-                                $loyaltyInquiryEndPointUrl = null)
+                                $loyaltyInquiryEndPointUrl = null, $refundEndpointUrl=null)
     {
         $this->merchantId = $merchantId;
         $this->secretKey = $secretKey;
         $this->paymentEndpointUrl = $paymentEndpointUrl;
         $this->loyaltyInquiryEndPointUrl = $loyaltyInquiryEndPointUrl;
+        $this->refundEndpointUrl = $refundEndpointUrl;
     }
 
     /**
@@ -102,5 +115,23 @@ class Configuration
     public function getSecretKey()
     {
         return $this->secretKey;
+    }
+
+    /**
+     * @param string $refundEndpointUrl
+     * @return $this
+     */
+    public function setRefundEndpointUrl($refundEndpointUrl)
+    {
+        $this->refundEndpointUrl = $refundEndpointUrl;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRefundEndpointUrl()
+    {
+        return $this->refundEndpointUrl;
     }
 } 

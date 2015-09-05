@@ -4,12 +4,15 @@ namespace Payu;
 use Guzzle\Http\Exception\RequestException;
 use Payu\Builder\LoyaltyInquiryRequestBuilder;
 use Payu\Builder\PaymentRequestBuilder;
+use Payu\Builder\RefundRequestBuilder;
 use Payu\Exception\ConnectionError;
 use Payu\Parser\LoyaltyInquiryResponseParser;
 use Payu\Parser\PaymentResponseParser;
+use Payu\Parser\RefundResponseParser;
 use Payu\Parser\ResponseParser;
 use Payu\Request\LoyaltyInquiryRequest;
 use Payu\Request\PaymentRequest;
+use Payu\Request\RefundRequest;
 use Payu\Request\RequestAbstract;
 use Guzzle\Http\Client as httpClient;
 
@@ -43,6 +46,14 @@ class Client
     public function createLoyaltyInquiryRequestBuilder()
     {
         return new LoyaltyInquiryRequestBuilder($this->configuration);
+    }
+
+    /**
+     * @return RefundRequestBuilder
+     */
+    public function createRefundRequestBuilder()
+    {
+        return new RefundRequestBuilder($this->configuration);
     }
 
     /**
@@ -87,6 +98,17 @@ class Client
     {
         $rawResponse = $this->sendRequest($request, $this->configuration->getLoyaltyInquiryEndPointUrl());
         $parser = new ResponseParser(new LoyaltyInquiryResponseParser(), $rawResponse);
+        return $parser->parse();
+    }
+
+    /**
+     * @param RefundRequest $request
+     * @return Response\RefundResponse
+     */
+    public function makeRefund(RefundRequest $request)
+    {
+        $rawResponse = $this->sendRequest($request, $this->configuration->getRefundEndpointUrl());
+        $parser = new ResponseParser(new RefundResponseParser(), $rawResponse);
         return $parser->parse();
     }
 } 
