@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="Bootstrap.php"
+         colors="true"
+         stopOnError="true"
+         stopOnFailure="true"
+         verbose="true">
+    <testsuites>
+        <testsuite name="Payu Test">
+            <directory>./</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./../src</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+
+        <log type="coverage-html" target="./testresults" />
+    </logging>
+
+</phpunit>
