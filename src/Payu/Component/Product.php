@@ -34,6 +34,33 @@ class Product implements ComponentInterface
     private $version;
 
     /**
+     * @var integer
+     */
+    private $vat;
+
+    /**
+     * If you set vat value, the price should calculate without vat
+     */
+    public function __construct(
+        $name = null,
+        $code = null,
+        $quantity = null,
+        $info = null,
+        $price = null,
+        $version = null,
+        $vat = null
+    ) {
+        $this->setName($name);
+        $this->setCode($code);
+        $this->setQuantity($quantity);
+        $this->setInfo($info);
+        $this->setPrice($price);
+        $this->setVersion($version);
+        $this->setVat($vat);
+    }
+
+
+    /**
      * @param string $code
      * @return $this
      */
@@ -147,19 +174,27 @@ class Product implements ComponentInterface
         return $this->version;
     }
 
-    public function __construct(
-        $name = null,
-        $code = null,
-        $quantity = null,
-        $info = null,
-        $price = null,
-        $version = null
-    ) {
-        $this->setName($name);
-        $this->setCode($code);
-        $this->setQuantity($quantity);
-        $this->setInfo($info);
-        $this->setPrice($price);
-        $this->setVersion($version);
+    /**
+     * Gets the value of vat.
+     *
+     * @return integer
+     */
+    public function getVat()
+    {
+        return $this->vat;
+    }
+
+    /**
+     * Sets the value of vat.
+     *
+     * @param integer $vat
+     *
+     * @return self
+     */
+    public function setVat($vat)
+    {
+        $this->vat = $vat;
+
+        return $this;
     }
 }
