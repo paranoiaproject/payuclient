@@ -196,9 +196,11 @@ class PaymentRequestBuilder extends BuilderAbstract
         $quantity = null,
         $info = null,
         $price = null,
-        $version = null
+        $version = null,
+        $vat = null
     ) {
-        $this->basket->add(new Product($name, $code, $quantity, $info, $price, $version));
+
+        $this->basket->add(new Product($name, $code, $quantity, $info, $price, $version, $vat));
         return $this;
     }
 
