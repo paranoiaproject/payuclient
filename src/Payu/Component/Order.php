@@ -78,6 +78,7 @@ class Order implements ComponentInterface
     public function setClientIp($clientIp)
     {
         $this->clientIp = $clientIp;
+
         return $this;
     }
 
@@ -96,6 +97,7 @@ class Order implements ComponentInterface
     public function setCode($code)
     {
         $this->code = $code;
+
         return $this;
     }
 
@@ -114,6 +116,7 @@ class Order implements ComponentInterface
     public function setCurrency($currency)
     {
         $this->currency = $currency;
+        
         return $this;
     }
 
@@ -132,6 +135,7 @@ class Order implements ComponentInterface
     public function setDate($date)
     {
         $this->date = $date != null ? $date : gmdate('Y-m-d H:i:s');
+
         return $this;
     }
 
@@ -150,6 +154,7 @@ class Order implements ComponentInterface
     public function setInstallment($installment)
     {
         $this->installment = $installment;
+
         return $this;
     }
 
@@ -168,6 +173,7 @@ class Order implements ComponentInterface
     public function setLoyaltyAmount($loyaltyAmount)
     {
         $this->loyaltyAmount = $loyaltyAmount;
+
         return $this;
     }
 
@@ -186,6 +192,7 @@ class Order implements ComponentInterface
     public function setPaymentMethod($paymentMethod)
     {
         $this->paymentMethod = $paymentMethod;
+
         return $this;
     }
 
@@ -204,6 +211,7 @@ class Order implements ComponentInterface
     public function setTimeout($timeout)
     {
         $this->timeout = $timeout;
+
         return $this;
     }
 
