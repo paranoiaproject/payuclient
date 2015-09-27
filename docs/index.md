@@ -6,3 +6,4 @@
 * [Puan Sorgulama] (/docs/puan_sorgulama.md)
 * [Puan Kullanımı] (/docs/puan_kullanimi.md)
 * API Referans Dökümanı
+* [Birim Testlerin Çalıştırılması](/docs/birim_testlerin_calistirilmasi.md)
