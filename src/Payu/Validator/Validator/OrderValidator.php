@@ -12,7 +12,19 @@ class OrderValidator extends ValidatorAbstract
      */
     public function validate()
     {
-        // TODO: Implement validate() method.
+        parent::validate();
+
+        /**
+         * @var $object \Payu\Component\Order
+         */
+        $object = $this->request->getOrder();
+
+        // Get currency from order instance
+        try {
+            static::filterAndValidateCurrencyCode($object->getCurrency());
+        } catch (\Exception $e) {
+            throw new ValidationError($e->getMessage());
+        }
     }
 
     /**
@@ -25,16 +37,9 @@ class OrderValidator extends ValidatorAbstract
          * @var $object \Payu\Component\Order
          */
         $object = $this->request->getOrder();
-        
+
         if (!$object || !$object instanceof Order) {
             throw new ValidationError('Order does not be empty.');
-        }
-
-        // Get currency from order instance
-        try {
-            static::filterAndValidateCurrencyCode($object->getCurrency());
-        } catch (\Exception $e) {
-            throw new ValidationError($e->getMessage());
         }
     }
 

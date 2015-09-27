@@ -3,3 +3,4 @@ vendor
 *.lock
 tests/testresults/
 .DS_Store
+*.swp

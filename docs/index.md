@@ -1,6 +1,8 @@
 # İçindekiler
-* [Peşin Satış](/docs/pesin_satis.md)
-* [Taksitli Satış](/docs/taksitli_satis.md)
+* [Satış](/docs/satis.md)
+    * [Peşin Satış](docs/satis.md#pesin-satis)
+    * [Taksitli Satış](/docs/satis.md#taksitli-satis)
+    * [Tekrarlayan Ödeme](/docs/satis.md#tekrarlayan-odeme)
 * [Puan Sorgulama] (/docs/puan_sorgulama.md)
 * [Puan Kullanımı] (/docs/puan_kullanimi.md)
 * API Referans Dökümanı
