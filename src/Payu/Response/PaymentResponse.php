@@ -9,6 +9,32 @@ class PaymentResponse extends ResponseAbstract
     protected $transactionId;
 
     /**
+     * @var string
+     */
+    protected $hash;
+
+    /**
+     * @var string
+     */
+    protected $url3DS;
+
+    /**
+     * @param integer $status
+     * @param string $code
+     * @param string $message
+     * @param string $transactionId
+     * @param string $hash
+     * @param string $url3DS
+     */
+    public function __construct($status, $code, $message, $transactionId, $hash, $url3DS)
+    {
+        parent::__construct($status, $code, $message);
+        $this->setTransactionId($transactionId);
+        $this->setHash($hash);
+        $this->setUrl3DS($url3DS);
+    }
+
+    /**
      * @param string $transactionId
      * @return $this;
      */
@@ -26,14 +52,34 @@ class PaymentResponse extends ResponseAbstract
     }
 
     /**
-     * @param integer $status
-     * @param string $code
-     * @param string $message
-     * @param string $transactionId
+     * @return string
      */
-    public function __construct($status, $code, $message, $transactionId)
+    public function getHash()
     {
-        parent::__construct($status, $code, $message);
-        $this->setTransactionId($transactionId);
+        return $this->hash;
+    }
+
+    /**
+     * @param string $hash
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl3DS()
+    {
+        return $this->url3DS;
+    }
+
+    /**
+     * @param string $url3DS
+     */
+    public function setUrl3DS($url3DS)
+    {
+        $this->url3DS = $url3DS;
     }
 } 

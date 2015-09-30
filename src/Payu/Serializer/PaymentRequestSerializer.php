@@ -10,7 +10,7 @@ class PaymentRequestSerializer extends SerializerAbstract
     {
         /** @var $order \Payu\Component\Order */
         $order = $this->request->getOrder();
-
+        
         $data = array(
             'ORDER_REF'                    => $order->getCode(),
             'ORDER_DATE'                   => $order->getDate(),
@@ -18,6 +18,7 @@ class PaymentRequestSerializer extends SerializerAbstract
             'PRICES_CURRENCY'              => $order->getCurrency(),
             'SELECTED_INSTALLMENTS_NUMBER' => $order->getInstallment(),
             'ORDER_TIMEOUT'                => $order->getTimeout(),
+            'BACK_REF'                     => $this->configuration->getPaymentReturnPointUrl(),
             'CLIENT_IP'                    => $order->getClientIp()
         );
 
