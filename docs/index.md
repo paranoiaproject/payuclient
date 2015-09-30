@@ -1,4 +1,5 @@
 # İçindekiler
+<<<<<<< HEAD
 * [Satış](/docs/satis.md)
     * [Peşin Satış](docs/satis.md#pesin-satis)
     * [Taksitli Satış](/docs/satis.md#taksitli-satis)

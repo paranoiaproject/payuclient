@@ -19,7 +19,7 @@ class PaymentRequestSerializer extends SerializerAbstract
             'SELECTED_INSTALLMENTS_NUMBER' => $order->getInstallment(),
             'ORDER_TIMEOUT'                => $order->getTimeout(),
             'BACK_REF'                     => $this->configuration->getPaymentReturnPointUrl(),
-            'CLIENT_IP'                    => $order->getClientIp(),
+            'CLIENT_IP'                    => $order->getClientIp()
         );
 
         if ((float) $order->getLoyaltyAmount() != 0) {
@@ -118,8 +118,15 @@ class PaymentRequestSerializer extends SerializerAbstract
             $this->serializeBasket()
         );
 
+<<<<<<< HEAD
         $filteredData               = array_filter($concatenatedData);
         $filteredData['MERCHANT']   = $this->configuration->getMerchantId();
+=======
+
+
+        $filteredData = array_filter($concatenatedData);
+        $filteredData['MERCHANT'] = $this->configuration->getMerchantId();
+>>>>>>> 88dcacf845b8262028617e2217327ade187c992d
         $filteredData['ORDER_HASH'] = $this->calculateHash($filteredData);
 
         return $filteredData;
