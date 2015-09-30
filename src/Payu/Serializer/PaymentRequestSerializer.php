@@ -118,15 +118,8 @@ class PaymentRequestSerializer extends SerializerAbstract
             $this->serializeBasket()
         );
 
-<<<<<<< HEAD
         $filteredData               = array_filter($concatenatedData);
         $filteredData['MERCHANT']   = $this->configuration->getMerchantId();
-=======
-
-
-        $filteredData = array_filter($concatenatedData);
-        $filteredData['MERCHANT'] = $this->configuration->getMerchantId();
->>>>>>> 88dcacf845b8262028617e2217327ade187c992d
         $filteredData['ORDER_HASH'] = $this->calculateHash($filteredData);
 
         return $filteredData;
