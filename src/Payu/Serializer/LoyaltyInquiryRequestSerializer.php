@@ -1,6 +1,12 @@
 <?php
+
 namespace Payu\Serializer;
 
+use Payu\Request\LoyaltyInquiryRequest;
+
+/**
+ * @property LoyaltyInquiryRequest $request
+ */
 class LoyaltyInquiryRequestSerializer extends SerializerAbstract
 {
     /**

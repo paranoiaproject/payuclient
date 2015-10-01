@@ -1,6 +1,11 @@
 <?php
-namespace Payu\Serializer;
 
+namespace Payu\Serializer;
+use Payu\Request\PaymentRequest;
+
+/**
+ * @property PaymentRequest $request
+ */
 class PaymentRequestSerializer extends SerializerAbstract
 {
     /**
@@ -106,7 +111,7 @@ class PaymentRequestSerializer extends SerializerAbstract
     }
 
     /**
-     * @return serialize
+     * @return array
      */
     public function serialize()
     {
