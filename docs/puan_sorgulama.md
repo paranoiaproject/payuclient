@@ -65,7 +65,7 @@ $response = $client->makeLoyaltyInquiry($request)
 ## İşlem Sonucunun Kontrol Edilmesi
 
 ```php
-    if ($response->getStatus() == ResponseAbstract::STATUS_APPROVED) {
+    if ($response->getStatus() == ResponseAbstract::LOYALITY_STATUS_SUCCESS) {
         // Puan sorgulama işlemi başarılı bir şekilde gerçekleşti
         print_r($response);
     } else {
@@ -100,7 +100,7 @@ $curreny->setCode('TRY');
 
 $response = $client->makeLoyaltyInquiry($request);
 
-if ($response->getStatus() == ResponseAbstract::STATUS_APPROVED) {
+if ($response->getStatus() == ResponseAbstract::LOYALITY_STATUS_SUCCESS) {
     // Puan sorgulama işlemi başarılı bir şekilde gerçekleşti
     print_r($response);
 } else {
