@@ -27,14 +27,14 @@ class LoyaltyInquiryResponseParser implements ParserInterface
 
         switch ($status) {
             case 'SUCCESS':
-                $code = ResponseAbstract::STATUS_SUCCESS;
+                $code = ResponseAbstract::LOYALITY_STATUS_SUCCESS;
                 break;
             case 'INPUT_ERROR':
-                $code = ResponseAbstract::STATUS_INPUT_ERROR;
+                $code = ResponseAbstract::LOYALITY_STATUS_INPUT_ERROR;
                 break;
             case 'FAILED':
             default:
-                $code = ResponseAbstract::STATUS_FAILED;
+                $code = ResponseAbstract::LOYALITY_STATUS_FAILED;
                 break;
         }
 

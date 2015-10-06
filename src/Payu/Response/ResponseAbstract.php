@@ -3,9 +3,12 @@ namespace Payu\Response;
 
 abstract class ResponseAbstract
 {
-    const STATUS_SUCCESS = 200;
-    const STATUS_INPUT_ERROR = 400;
-    const STATUS_FAILED = 500;
+    const STATUS_APPROVED = 200;
+    const STATUS_UNAUTHORIZED = 401;
+
+    const LOYALITY_STATUS_SUCCESS = 200;
+    const LOYALITY_STATUS_INPUT_ERROR = 400;
+    const LOYALITY_STATUS_FAILED = 500;
 
     /**
      * @var integer
