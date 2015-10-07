@@ -1,6 +1,6 @@
 # İçindekiler
 * [Satış](/docs/satis.md)
-    * [Peşin Satış](docs/satis.md#pesin-satis)
+    * [Peşin Satış](/docs/satis.md#pesin-satis)
     * [Taksitli Satış](/docs/satis.md#taksitli-satis)
     * [Tekrarlayan Ödeme](/docs/satis.md#tekrarlayan-odeme)
     * [3D Secure ile satış] (/docs/3d-secure-ile-satis.md)
