@@ -5,7 +5,7 @@
     "keywords": ["payment", "e-commerce", "payu"],
     "require": {
         "php": "> 5.3.0",
-        "guzzle/guzzle": "3.9.2"
+        "guzzlehttp/guzzle": "^6.1"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
