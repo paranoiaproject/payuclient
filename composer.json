@@ -1,5 +1,5 @@
 {
-    "name": "ibrahimgunduz34/payuclient",
+    "name": "paranoiaproject/payuclient",
     "type": "library",
     "description": "Payment client for Payu Turkey provider.",
     "keywords": ["payment", "e-commerce", "payu"],
