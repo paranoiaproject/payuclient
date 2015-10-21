@@ -10,7 +10,7 @@ Entegrasyon detaylarıyla uğraşmadan mevcut uygulamaya kolayca entegrasyonu sa
 Payu istemci kütüphanesi composer desteklidir.  Mevcut uygulamanızın gereksinimler (requirements) alanına "ibrahimgunduz34/payuclient" bileşenini ekleyebilir veya aşağıdaki komutu çalıştırarak kurulumu gerçekleştirebilirsiniz.
 
 ```shell
-$ composer require ibrahimgunduz34/payuclient:dev-master
+$ composer require paranoiaproject/payuclient:dev-master
 ```
 
 Entegrasyon detayları ile ilgili dökümanları [buraya tıklayarak](/docs/index.md) inceleyebilirsiniz.
