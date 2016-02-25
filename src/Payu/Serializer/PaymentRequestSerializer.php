@@ -97,7 +97,8 @@ class PaymentRequestSerializer extends SerializerAbstract
             $data['ORDER_QTY[' . $i . ']']   = $product->getQuantity();
             $data['ORDER_PINFO[' . $i . ']'] = $product->getInfo();
             $data['ORDER_VER[' . $i . ']']   = $product->getVersion();
-            $data['ORDER_VAT[' . $i . ']']   = $product->getVat();;
+            $data['ORDER_VAT[' . $i . ']']   = $product->getVat();
+            $data['ORDER_PRICE_TYPE[' . $i . ']']   = $product->getPriceType();
             $i++;
         }
 
