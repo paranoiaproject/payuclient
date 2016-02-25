@@ -39,6 +39,11 @@ class Product implements ComponentInterface
     private $vat;
 
     /**
+     * @var string
+     */
+    private $priceType = 'NET';
+
+    /**
      * If you set vat value, the price should calculate without vat
      */
     public function __construct(
@@ -48,7 +53,8 @@ class Product implements ComponentInterface
         $info = null,
         $price = null,
         $version = null,
-        $vat = null
+        $vat = null,
+        $priceType = null
     ) {
         $this->setName($name);
         $this->setCode($code);
@@ -57,6 +63,7 @@ class Product implements ComponentInterface
         $this->setPrice($price);
         $this->setVersion($version);
         $this->setVat($vat);
+        $this->setPriceType($priceType);
     }
 
 
@@ -194,6 +201,24 @@ class Product implements ComponentInterface
     public function setVat($vat)
     {
         $this->vat = $vat;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPriceType()
+    {
+        return $this->priceType;
+    }
+
+    /**
+     * @param string $priceType
+     */
+    public function setPriceType($priceType)
+    {
+        $this->priceType = $priceType;
 
         return $this;
     }
