@@ -92,13 +92,15 @@ class PaymentRequestSerializer extends SerializerAbstract
         $data = array();
         /** @var $product \Payu\Component\Product */
         foreach ($this->request->getBasket() as $product) {
-            $data['ORDER_PNAME[' . $i . ']'] = $product->getName();
-            $data['ORDER_PCODE[' . $i . ']'] = $product->getCode();
-            $data['ORDER_PRICE[' . $i . ']'] = $product->getPrice();
-            $data['ORDER_QTY[' . $i . ']']   = $product->getQuantity();
-            $data['ORDER_PINFO[' . $i . ']'] = $product->getInfo();
-            $data['ORDER_VER[' . $i . ']']   = $product->getVersion();
-            $data['ORDER_VAT[' . $i . ']']   = $product->getVat();;
+            $data['ORDER_PNAME[' . $i . ']']        = $product->getName();
+            $data['ORDER_PCODE[' . $i . ']']        = $product->getCode();
+            $data['ORDER_PRICE[' . $i . ']']        = $product->getPrice();
+            $data['ORDER_QTY[' . $i . ']']          = $product->getQuantity();
+            $data['ORDER_PINFO[' . $i . ']']        = $product->getInfo();
+            $data['ORDER_VER[' . $i . ']']          = $product->getVersion();
+            $data['ORDER_VAT[' . $i . ']']          = $product->getVat();
+            $data['ORDER_VAT[' . $i . ']']          = $product->getVat();
+            $data['ORDER_PRICE_TYPE[' . $i . ']']   = $product->getPriceType();
             $i++;
         }
 

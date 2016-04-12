@@ -3,6 +3,11 @@ namespace Payu\Component;
 
 class Product implements ComponentInterface
 {
+
+    const PRICE_TYPE_NET    = 'NET';
+
+    const PRICE_TYPE_GROSS  = 'GROSS';
+    
     /**
      * @var string
      */
@@ -39,7 +44,21 @@ class Product implements ComponentInterface
     private $vat;
 
     /**
+     * @var string
+     */
+    private $priceType;
+
+    /**
      * If you set vat value, the price should calculate without vat
+     *
+     * @param null $name
+     * @param null $code
+     * @param null $quantity
+     * @param null $info
+     * @param null $price
+     * @param null $version
+     * @param null $vat
+     * @param null $priceType
      */
     public function __construct(
         $name = null,
@@ -48,7 +67,8 @@ class Product implements ComponentInterface
         $info = null,
         $price = null,
         $version = null,
-        $vat = null
+        $vat = null,
+        $priceType = null
     ) {
         $this->setName($name);
         $this->setCode($code);
@@ -57,6 +77,7 @@ class Product implements ComponentInterface
         $this->setPrice($price);
         $this->setVersion($version);
         $this->setVat($vat);
+        $this->setPriceType($priceType);
     }
 
 
@@ -197,4 +218,26 @@ class Product implements ComponentInterface
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getPriceType()
+    {
+        return $this->priceType;
+    }
+
+    /**
+     * @param string $priceType
+     *
+     * @return $this
+     */
+    public function setPriceType($priceType)
+    {
+        $this->priceType = $priceType;
+
+        return $this;
+    }
+
+
 }
