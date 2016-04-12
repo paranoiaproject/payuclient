@@ -188,6 +188,9 @@ class PaymentRequestBuilder extends BuilderAbstract
      * @param null $info
      * @param null $price
      * @param null $version
+     * @param null $vat
+     * @param null $priceType
+     *
      * @return $this
      */
     public function buildAndAddProduct(
@@ -197,10 +200,11 @@ class PaymentRequestBuilder extends BuilderAbstract
         $info = null,
         $price = null,
         $version = null,
-        $vat = null
+        $vat = null,
+        $priceType = null
     ) {
 
-        $this->basket->add(new Product($name, $code, $quantity, $info, $price, $version, $vat));
+        $this->basket->add(new Product($name, $code, $quantity, $info, $price, $version, $vat, $priceType));
         return $this;
     }
 
