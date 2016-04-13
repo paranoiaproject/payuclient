@@ -66,6 +66,7 @@ class PaymentRequestBuilder extends BuilderAbstract
             $timeout,
             $recurringPayment
         );
+
         return $this;
     }
 
@@ -76,6 +77,7 @@ class PaymentRequestBuilder extends BuilderAbstract
     public function setOrder(Order $order)
     {
         $this->order = $order;
+
         return $this;
     }
 
@@ -117,6 +119,7 @@ class PaymentRequestBuilder extends BuilderAbstract
             $state,
             $countryCode
         );
+
         return $this;
     }
 
@@ -127,6 +130,7 @@ class PaymentRequestBuilder extends BuilderAbstract
     public function setBilling(Billing $billing)
     {
         $this->billing = $billing;
+
         return $this;
     }
 
@@ -168,6 +172,7 @@ class PaymentRequestBuilder extends BuilderAbstract
             $state,
             $countryCode
         );
+
         return $this;
     }
 
@@ -178,6 +183,7 @@ class PaymentRequestBuilder extends BuilderAbstract
     public function setDelivery(Delivery $delivery)
     {
         $this->delivery = $delivery;
+
         return $this;
     }
 
@@ -215,6 +221,7 @@ class PaymentRequestBuilder extends BuilderAbstract
     public function addProduct(Product $product)
     {
         $this->basket->add($product);
+
         return $this;
     }
 
@@ -232,7 +239,7 @@ class PaymentRequestBuilder extends BuilderAbstract
         $validator->validate();
 
         $serializer = new PaymentRequestSerializer($request, $this->configuration);
-        $rawData = $serializer->serialize();
+        $rawData    = $serializer->serialize();
 
         $request->setRawData($rawData);
 
