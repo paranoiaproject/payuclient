@@ -23,7 +23,7 @@ class PaymentResponseParser implements ParserInterface
         } catch(Exception $e) {
             throw new BadResponseError('Unexpected response received from provider. Response: ' . $rawData);
         }
-
+        
         $status = (string) $xml->STATUS;
         $code = (string) $xml->RETURN_CODE;
         $statusCode = $this->parseStatusCode($status, $code);
@@ -31,9 +31,12 @@ class PaymentResponseParser implements ParserInterface
         $hash = isset($xml->HASH) ? (string) $xml->HASH : null;
         $tokenHash = isset($xml->TOKEN_HASH) ? (string) $xml->TOKEN_HASH : null;
         $url3DS = isset($xml->URL_3DS) ? (string) $xml->URL_3DS : null;
+        $amount = isset($xml->AMOUNT) ? (double)$xml->AMOUNT : null;
         $message = isset($xml->ERRORMESSAGE) ? (string) $xml->ERRORMESSAGE : null;
 
-        return new PaymentResponse($statusCode, $code, $message, $transactionId, $hash, $url3DS, $tokenHash);
+        $paymentResponse = new PaymentResponse($statusCode, $code, $message, $transactionId, $hash, $url3DS, $tokenHash);
+        $paymentResponse->setAmount($amount);
+        return $paymentResponse;
     }
 
     private function parseStatusCode($status, $code)

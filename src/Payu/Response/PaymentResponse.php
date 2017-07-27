@@ -24,6 +24,11 @@ class PaymentResponse extends ResponseAbstract
     protected $tokenHash;
 
     /**
+     * @var $amount
+     */
+    protected $amount;
+
+    /**
      * @param integer $status
      * @param string $code
      * @param string $message
@@ -104,5 +109,14 @@ class PaymentResponse extends ResponseAbstract
     public function setTokenHash($tokenHash)
     {
         $this->tokenHash = $tokenHash;
+    }
+
+    public function setAmount($amount = null) {
+        $this->amount = $amount;
+        return $this;
+    }
+
+    public function getAmount() {
+        return $this->amount;
     }
 } 
