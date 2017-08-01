@@ -26,13 +26,17 @@ class PaymentResponseParser implements ParserInterface
 
         $status = (string) $xml->STATUS;
         $code = (string) $xml->RETURN_CODE;
-        $message = (string) $xml->RETURN_MESSAGE;
         $statusCode = $this->parseStatusCode($status, $code);
         $transactionId = $this->parseTransactionId($xml->REFNO, $statusCode);
         $hash = isset($xml->HASH) ? (string) $xml->HASH : null;
+        $tokenHash = isset($xml->TOKEN_HASH) ? (string) $xml->TOKEN_HASH : null;
         $url3DS = isset($xml->URL_3DS) ? (string) $xml->URL_3DS : null;
+        $amount = isset($xml->AMOUNT) ? (double)$xml->AMOUNT : null;
+        $message = isset($xml->ERRORMESSAGE) && !empty($xml->ERRORMESSAGE) ? (string) $xml->ERRORMESSAGE : (string) $xml->RETURN_MESSAGE;
 
-        return new PaymentResponse($statusCode, $code, $message, $transactionId, $hash, $url3DS);
+        $paymentResponse = new PaymentResponse($statusCode, $code, $message, $transactionId, $hash, $url3DS, $tokenHash);
+        $paymentResponse->setAmount($amount);
+        return $paymentResponse;
     }
 
     private function parseStatusCode($status, $code)

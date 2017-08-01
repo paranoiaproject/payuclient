@@ -75,6 +75,7 @@ class Client
     public function makePayment(PaymentRequest $request)
     {
         $rawResponse = $this->sendRequest($request, $this->configuration->getPaymentEndpointUrl());
+        
         $parser = new ResponseParser(new PaymentResponseParser(), $rawResponse);
         return $parser->parse();
     }
