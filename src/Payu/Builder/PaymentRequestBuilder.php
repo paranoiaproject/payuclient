@@ -80,16 +80,17 @@ class PaymentRequestBuilder extends BuilderAbstract
     }
 
     /**
-     * @param null $firstName
-     * @param null $lastName
-     * @param null $email
-     * @param null $phone
-     * @param null $fax
-     * @param null $address
-     * @param null $zipCode
-     * @param null $city
-     * @param null $state
-     * @param null $countryCode
+     * @param null   $firstName
+     * @param null   $lastName
+     * @param null   $email
+     * @param null   $phone
+     * @param null   $fax
+     * @param null   $address
+     * @param null   $zipCode
+     * @param null   $city
+     * @param null   $state
+     * @param string $countryCode
+     *
      * @return $this
      */
     public function buildBilling(
@@ -102,7 +103,7 @@ class PaymentRequestBuilder extends BuilderAbstract
         $zipCode = null,
         $city = null,
         $state = null,
-        $countryCode = null
+        $countryCode = 'TR'
     )
     {
         $this->billing = new Billing(
