@@ -7,7 +7,7 @@ PHP geliştiricilerinin Payu üzerinden ödeme ve puan sorgulama işlemlerini ko
 Entegrasyon detaylarıyla uğraşmadan mevcut uygulamaya kolayca entegrasyonu sağlanarak geliştirme maliyetini düşürür.
 
 # Nasıl ?
-Payu istemci kütüphanesi composer desteklidir.  Mevcut uygulamanızın gereksinimler (requirements) alanına "ibrahimgunduz34/payuclient" bileşenini ekleyebilir veya aşağıdaki komutu çalıştırarak kurulumu gerçekleştirebilirsiniz.
+Payu istemci kütüphanesi composer desteklidir.  Mevcut uygulamanızın gereksinimler (requirements) alanına ```paranoiaproject/payuclient``` bileşenini ekleyebilir veya aşağıdaki komutu çalıştırarak kurulumu gerçekleştirebilirsiniz.
 
 ```shell
 $ composer require paranoiaproject/payuclient:dev-master
