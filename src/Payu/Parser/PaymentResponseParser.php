@@ -37,14 +37,10 @@ class PaymentResponseParser implements ParserInterface
 
     private function parseStatusCode($status, $code)
     {
-        $statusCode = null;
+        $statusCode = $status;
 
-        if ($status == 'SUCCESS') {
-            if ($code == 'AUTHORIZED') {
-                $statusCode = ResponseAbstract::STATUS_APPROVED;
-            } else if ($code == '3DS_ENROLLED') {
-                $statusCode = ResponseAbstract::STATUS_UNAUTHORIZED;
-            }
+        if ($status == 'SUCCESS' && in_array($code, ResponseAbstract::getStatusCodeList())) {
+            $statusCode = $code;
         }
 
         return $statusCode;

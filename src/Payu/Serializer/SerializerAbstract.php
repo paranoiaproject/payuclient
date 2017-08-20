@@ -55,7 +55,7 @@ abstract class SerializerAbstract
     }
 
     /**
-     * @return serialize
+     * @return array
      */
     abstract public function serialize();
 } 

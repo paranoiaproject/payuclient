@@ -1,4 +1,5 @@
 <?php
+
 namespace Payu\Request;
 
 abstract class RequestAbstract
@@ -25,4 +26,6 @@ abstract class RequestAbstract
     {
         return $this->rawData;
     }
+
+    abstract public function getCard();
 } 

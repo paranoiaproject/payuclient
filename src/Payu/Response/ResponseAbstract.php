@@ -78,6 +78,17 @@ abstract class ResponseAbstract
     }
 
     /**
+     * @return array
+     */
+    public static function getStatusCodeList()
+    {
+        return array(
+            self::STATUS_APPROVED,
+            self::STATUS_UNAUTHORIZED
+        );
+    }
+
+    /**
      * @param integer $status
      * @param string $code
      * @param string $message
